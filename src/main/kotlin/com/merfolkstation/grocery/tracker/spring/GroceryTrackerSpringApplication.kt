@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class GroceryTrackerSpringApplication
 
 fun main(args: Array<String>) {
-	runApplication<GroceryTrackerSpringApplication>(*args)
+    runApplication<GroceryTrackerSpringApplication>(*args)
 }
