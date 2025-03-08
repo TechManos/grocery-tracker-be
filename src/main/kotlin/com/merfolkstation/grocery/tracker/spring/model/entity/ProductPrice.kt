@@ -1,11 +1,13 @@
 package com.merfolkstation.grocery.tracker.spring.model.entity
 
+import com.merfolkstation.grocery.tracker.spring.model.entity.event.SoftDeleteEntityListener
 import jakarta.persistence.*
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "product_price")
+@EntityListeners(SoftDeleteEntityListener::class)
 class ProductPrice(
 
     @Id
@@ -30,5 +32,5 @@ class ProductPrice(
     val dateRecorded: LocalDateTime = LocalDateTime.now(),
 
     @Column(name = "deleted_at")
-    val deletedAt: LocalDateTime? = null
-)
+    override var deletedAt: LocalDateTime? = null
+) : SoftDeletable

@@ -1,10 +1,12 @@
 package com.merfolkstation.grocery.tracker.spring.model.entity
 
+import com.merfolkstation.grocery.tracker.spring.model.entity.event.SoftDeleteEntityListener
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "product")
+@EntityListeners(SoftDeleteEntityListener::class)
 class Product(
 
     @Id
@@ -29,5 +31,5 @@ class Product(
     var barcode: Barcode? = null,
 
     @Column(name = "deleted_at")
-    val deletedAt: LocalDateTime? = null
-)
+    override var deletedAt: LocalDateTime? = null
+) : SoftDeletable
