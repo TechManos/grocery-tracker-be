@@ -26,8 +26,4 @@ interface SoftDeleteRepository<T, ID> : JpaRepository<T, ID> {
     @Query("SELECT e FROM #{#entityName} e WHERE e.deletedAt IS NOT NULL")
     @RestResource(path = "deleted", rel = "deleted")
     fun findDeleted(): List<T>
-
-    @Query("SELECT e FROM #{#entityName} e")
-    @RestResource(path = "all-including-deleted", rel = "all-including-deleted")
-    fun findAllIncludingDeleted(): List<T>
 }
