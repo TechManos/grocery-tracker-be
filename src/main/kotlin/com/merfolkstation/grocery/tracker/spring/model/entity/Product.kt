@@ -11,7 +11,7 @@ class Product(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null,
 
     @Column(nullable = false)
     val name: String,
@@ -24,7 +24,7 @@ class Product(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
-    val category: ProductCategory,
+    var category: ProductCategory,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "barcode_id")

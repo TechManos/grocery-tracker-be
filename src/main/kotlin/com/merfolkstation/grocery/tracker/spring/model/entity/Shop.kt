@@ -8,7 +8,7 @@ class Shop(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int? = null,
+    var id: Int? = null,
 
     @Column(nullable = false)
     val name: String,

@@ -8,7 +8,7 @@ class ProductCategory(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int? = null,
+    var id: Int? = null,
 
     @Column(nullable = false, unique = true)
     val name: String,

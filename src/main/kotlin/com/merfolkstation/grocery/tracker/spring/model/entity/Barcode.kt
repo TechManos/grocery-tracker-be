@@ -12,7 +12,7 @@ import jakarta.persistence.*
 class Barcode(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null,
 
     @Column(nullable = false)
     val value: String,

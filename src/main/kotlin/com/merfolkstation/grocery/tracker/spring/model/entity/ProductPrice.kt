@@ -12,15 +12,15 @@ class ProductPrice(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
-    val product: Product,
+    var product: Product,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id")
-    val shop: Shop? = null,
+    var shop: Shop? = null,
 
     @Column(nullable = false, precision = 10, scale = 2)
     val amount: BigDecimal,
