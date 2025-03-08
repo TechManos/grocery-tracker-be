@@ -19,7 +19,8 @@ class Barcode(
 
     @Column(nullable = false)
     val type: String,
+) {
 
     @OneToMany(mappedBy = "barcode", fetch = FetchType.LAZY)
-    val products: MutableSet<Product> = mutableSetOf()
-)
+    var products: MutableSet<Product> = mutableSetOf()
+}

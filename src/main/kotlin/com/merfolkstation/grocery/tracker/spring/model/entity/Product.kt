@@ -22,14 +22,15 @@ class Product(
     @Column(name = "standard_size", nullable = false)
     val standardSize: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false)
-    var category: ProductCategory,
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "barcode_id")
-    var barcode: Barcode? = null,
-
     @Column(name = "deleted_at")
     override var deletedAt: LocalDateTime? = null
-) : SoftDeletable
+) : SoftDeletable {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    var category: ProductCategory? = null
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "barcode_id", nullable = true)
+    var barcode: Barcode? = null
+}

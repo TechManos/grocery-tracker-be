@@ -14,14 +14,6 @@ class ProductPrice(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    var product: Product,
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "shop_id")
-    var shop: Shop? = null,
-
     @Column(nullable = false, precision = 10, scale = 2)
     val amount: BigDecimal,
 
@@ -33,4 +25,13 @@ class ProductPrice(
 
     @Column(name = "deleted_at")
     override var deletedAt: LocalDateTime? = null
-) : SoftDeletable
+) : SoftDeletable {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false)
+    var product: Product? = null
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "shop_id", nullable = true)
+    var shop: Shop? = null
+}
