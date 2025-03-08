@@ -22,5 +22,5 @@ class Barcode(
 ) {
 
     @OneToMany(mappedBy = "barcode", fetch = FetchType.LAZY)
-    var products: MutableSet<Product> = mutableSetOf()
+    val products: Set<Product> = setOf()
 }

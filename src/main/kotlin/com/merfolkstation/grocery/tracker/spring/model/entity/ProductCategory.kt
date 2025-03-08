@@ -19,5 +19,5 @@ class ProductCategory(
 
     // LAZY is default for OneToMany, but just to be clear
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    val products: MutableSet<Product> = mutableSetOf()
+    val products: Set<Product> = setOf()
 }

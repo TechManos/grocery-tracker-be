@@ -18,5 +18,5 @@ class Shop(
 ) {
 
     @OneToMany(mappedBy = "shop", fetch = FetchType.LAZY)
-    var productPrices: MutableSet<ProductPrice> = mutableSetOf()
+    val productPrices: Set<ProductPrice> = setOf()
 }

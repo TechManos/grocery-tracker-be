@@ -2,7 +2,6 @@ package com.merfolkstation.grocery.tracker.spring.model.repository.event
 
 import com.merfolkstation.grocery.tracker.spring.model.entity.Product
 import com.merfolkstation.grocery.tracker.spring.model.repository.BarcodeRepository
-import org.springframework.data.rest.core.annotation.HandleBeforeCreate
 import org.springframework.data.rest.core.annotation.HandleBeforeSave
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler
 import org.springframework.stereotype.Component
@@ -13,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional
 class ProductEventHandler(private val barcodeRepository: BarcodeRepository) {
 
     @HandleBeforeSave
-    @Transactional
+    @Transactional()
     fun handleProductUpdate(product: Product) {
         handleBarcodeDeduplication(product)
     }
