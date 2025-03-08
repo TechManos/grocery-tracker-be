@@ -1,34 +1,29 @@
-package com.merfolkstation.grocery.tracker.spring.model.repository;
+package com.merfolkstation.grocery.tracker.spring.model.repository
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.NoRepositoryBean;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.jpa.repository.Query
+import org.springframework.data.repository.NoRepositoryBean
+import java.util.*
 
-// This is .java, because kotlin won't work here (interoperability issues)
 @NoRepositoryBean
-public interface SoftDeleteRepository<T, ID> extends JpaRepository<T, ID> {
+interface SoftDeleteRepository<T, ID> : JpaRepository<T, ID> {
 
     // Override default methods to filter deleted entities
-    @Override
     @Query("SELECT e FROM #{#entityName} e WHERE e.deletedAt IS NULL")
-    List<T> findAll();
+    override fun findAll(): List<T>
 
-    @Override
     @Query("SELECT e FROM #{#entityName} e WHERE e.deletedAt IS NULL")
-    Page<T> findAll(Pageable pageable);
+    override fun findAll(pageable: Pageable): Page<T>
 
-    @Override
     @Query("SELECT e FROM #{#entityName} e WHERE e.id = :id AND e.deletedAt IS NULL")
-    Optional<T> findById(ID id);
+    override fun findById(id: ID & Any): Optional<T>
 
     // Add methods to access deleted entities if needed
     @Query("SELECT e FROM #{#entityName} e WHERE e.deletedAt IS NOT NULL")
-    List<T> findDeleted();
+    fun findDeleted(): List<T>
 
     @Query("SELECT e FROM #{#entityName} e")
-    List<T> findAllIncludingDeleted();
+    fun findAllIncludingDeleted(): List<T>
 }
