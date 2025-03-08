@@ -23,14 +23,13 @@ class Product(
     val standardSize: String,
 
     @Column(name = "deleted_at")
-    override var deletedAt: LocalDateTime? = null
-) : SoftDeletable {
+    override var deletedAt: LocalDateTime? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
-    var category: ProductCategory? = null
+    var category: ProductCategory? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "barcode_id", nullable = true)
     var barcode: Barcode? = null
-}
+) : SoftDeletable

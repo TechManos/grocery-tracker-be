@@ -1,4 +1,4 @@
-package com.merfolkstation.grocery.tracker.spring.model.repository.config
+package com.merfolkstation.grocery.tracker.spring.configuration
 
 import com.merfolkstation.grocery.tracker.spring.model.entity.*
 import org.springframework.context.annotation.Configuration

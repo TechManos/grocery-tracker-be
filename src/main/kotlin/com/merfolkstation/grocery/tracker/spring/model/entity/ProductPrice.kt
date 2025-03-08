@@ -24,14 +24,13 @@ class ProductPrice(
     val dateRecorded: LocalDateTime = LocalDateTime.now(),
 
     @Column(name = "deleted_at")
-    override var deletedAt: LocalDateTime? = null
-) : SoftDeletable {
+    override var deletedAt: LocalDateTime? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
-    var product: Product? = null
+    var product: Product? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id", nullable = true)
-    var shop: Shop? = null
-}
+    var shop: Shop? = null,
+) : SoftDeletable
