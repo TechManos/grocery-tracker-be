@@ -26,7 +26,7 @@ class Product(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "barcode_id")
-    val barcode: Barcode? = null,
+    var barcode: Barcode? = null,
 
     @Column(name = "deleted_at")
     val deletedAt: LocalDateTime? = null

@@ -8,8 +8,9 @@ CREATE TABLE product_category
 CREATE TABLE barcode
 (
     id    BIGSERIAL PRIMARY KEY,
-    value VARCHAR(255) NOT NULL UNIQUE,
-    type  VARCHAR(50)  NOT NULL
+    value VARCHAR(255) NOT NULL,
+    type  VARCHAR(8)  NOT NULL,
+    CONSTRAINT barcode_value_type_unique UNIQUE (value, type)
 );
 
 CREATE TABLE shop
