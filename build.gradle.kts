@@ -30,6 +30,7 @@ dependencies {
     implementation("org.springframework.data:spring-data-rest-hal-explorer")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate6")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")

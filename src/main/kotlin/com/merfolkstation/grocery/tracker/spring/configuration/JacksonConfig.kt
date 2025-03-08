@@ -20,7 +20,10 @@ class JacksonConfig {
                 configure(Hibernate6Module.Feature.REPLACE_PERSISTENT_COLLECTIONS, true)
                 // Handle nulls properly
                 configure(Hibernate6Module.Feature.USE_TRANSIENT_ANNOTATION, true)
-            })
+            },
+            // Add Java 8 date/time module - jsr310
+            JavaTimeModule()
+            )
         }
     }
 }
