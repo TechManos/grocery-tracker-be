@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry
 
 @Configuration
 class RestRepositoryConfig : RepositoryRestConfigurer {
+
     override fun configureRepositoryRestConfiguration(config: RepositoryRestConfiguration, cors: CorsRegistry) {
         // We will manipulate on FE with the data, so we need it
         config.exposeIdsFor(
