@@ -1,13 +1,11 @@
 package com.merfolkstation.grocery.tracker.spring.model.entity
 
-import com.merfolkstation.grocery.tracker.spring.model.entity.event.SoftDeleteEntityListener
 import jakarta.persistence.*
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "product_price")
-@EntityListeners(SoftDeleteEntityListener::class)
 class ProductPrice(
 
     @Id

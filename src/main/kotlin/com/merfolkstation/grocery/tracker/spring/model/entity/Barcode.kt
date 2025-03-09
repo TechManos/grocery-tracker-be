@@ -10,6 +10,7 @@ import jakarta.persistence.*
     ]
 )
 class Barcode(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
